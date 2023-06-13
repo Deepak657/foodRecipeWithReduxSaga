@@ -5,7 +5,6 @@ import logger from "redux-logger";
 import { useSelector, shallowEqual } from "react-redux";
 import rootSaga from "./Sagas";
 import { FoodState, recipeReducer } from "./reducers/RecipesReducers";
-import { QueryState, queryReducer } from "./reducers/QueryReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,12 +14,10 @@ export const useGSelector = <Selected = unknown,>(
 
 export interface Store {
   data: FoodState;
-  query: QueryState;
 }
 
 const rootReducer = combineReducers({
   data: recipeReducer,
-  query: queryReducer,
 });
 
 const middleware: any = [sagaMiddleware];

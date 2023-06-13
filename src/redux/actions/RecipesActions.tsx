@@ -6,11 +6,11 @@ export interface FetchRecipeStart {
   type: typeof FETCH_RECIPE_START;
 }
 
-export const fetchRecipeStart = (): FetchRecipeStart => {
-  return {
-    type: FETCH_RECIPE_START,
-  };
-};
+// export const fetchRecipeStart = (): FetchRecipeStart => {
+//   return {
+//     type: FETCH_RECIPE_START,
+//   };
+// };
 
 export const FETCH_RECIPE_SUCESS = "FETCH_RECIPE_SUCESS";
 

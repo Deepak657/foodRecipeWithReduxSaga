@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setQuery } from "../../redux/actions/QueryAction";
 import { styled } from "styled-components";
 
-const SearchFood = () => {
+interface Iprops {
+  onChange: (value: string) => void;
+}
+const SearchFood = ({ onChange }: Iprops) => {
   const [search, setSearch] = useState("");
-  const dispatch = useDispatch();
-
   const handleSubmit = (
     event: React.FormEvent<HTMLFormElement>,
     search: string
   ) => {
     event.preventDefault();
-    dispatch(setQuery(search));
+    onChange(search);
     setSearch("");
   };
 

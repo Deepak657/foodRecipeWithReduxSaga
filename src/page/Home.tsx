@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useGSelector } from "../redux/Store";
 import { useDispatch } from "react-redux";
 import { FETCH_RECIPE_START } from "../redux/actions/RecipesActions";
@@ -7,7 +7,8 @@ import { styled } from "styled-components";
 import HomeFoodCard from "../components/Cards/HomeFoodCard";
 const Home = () => {
   const foods = useGSelector((state) => state.data.recipes);
-  const query = useGSelector((state) => state.query.query);
+
+  const [query, setQuery] = useState("burger");
 
   const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ const Home = () => {
   return (
     <Wrapper>
       <Heading>Recipe App</Heading>
-      <SearchFood />
+      <SearchFood onChange={(value: string) => setQuery(value)} />
       <FoodCardWrapper>
         {foods.map((food) => {
           return <HomeFoodCard key={food.id} food={food} />;
